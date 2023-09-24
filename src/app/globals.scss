@@ -6,3 +6,7 @@
 @import "primereact/resources/primereact.min.css";
 @import "primereact/resources/themes/lara-light-indigo/theme.css";
 
+@font-face {
+  font-family: "JetbrainsMono";
+  src: local("./../fonts/JetBrainsMono-Regular.ttf");
+}

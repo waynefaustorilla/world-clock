@@ -21,7 +21,7 @@ const TimeZones = () => {
 
   return (
     <React.Fragment>
-      <Dropdown options={data} value={timezone} onChange={(event: DropdownChangeEvent) => dispatch(clockActions.setTimeZone(event.target.value))}/>
+      <Dropdown options={data} value={timezone} onChange={(event: DropdownChangeEvent) => dispatch(clockActions.setTimeZone(event.target.value))} filter />
     </React.Fragment>
   );
 };

@@ -1,13 +1,16 @@
+import TimeZone from "@/types/TimeZone";
 import API from "@/utilities/API";
 
 export default class WorldClock {
   public static getTimeZones = async () => {
-    const timezones = await API.get("/timezone");
+    const timezones = await API.get<string[]>("/timezone");
 
     return timezones.data;
   };
 
   public static getTimeFromTimeZone = async (timezone: string) => {
-    return await API.get(`/timezone/${timezone}`);
+    const time = await API.get<TimeZone>(`/timezone/${timezone}`);
+
+    return time.data;
   };
 }

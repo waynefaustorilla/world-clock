@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   timezone: "",
-  time: ""
+  time: "",
+  date: ""
 };
 
 const clockSlice = createSlice({
@@ -11,6 +12,9 @@ const clockSlice = createSlice({
   reducers: {
     setTime: (state, action) => {
       state.time = action.payload;
+    },
+    setDate: (state, action) => {
+      state.date = action.payload;
     },
     setTimeZone: (state, action) => {
       state.timezone = action.payload;

@@ -1,4 +1,9 @@
 {
     "editor.tabSize": 2,
-    "editor.tabCompletion": "on"
+    "editor.tabCompletion": "on",
+    "files.eol": "\n",
+    "emmet.includeLanguages": {
+      "tsx": "typescriptreact"
+    },
+    "emmet.triggerExpansionOnTab": true
 }

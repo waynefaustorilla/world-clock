@@ -2,16 +2,18 @@ import React from "react";
 import Clock from "@/components/Clock";
 import TimeZones from "@/components/TimeZones";
 
-const Home = async () => {
+const Home = () => {
   return (
-    <div className="flex flex-col min-h-screen justify-evenly items-center">
-      <main>
-        <Clock />
-      </main>
+    <div className="p-4 min-h-screen grid items-center bg-[#2d2d2d]">
+      <div className="h-full flex items-center flex-col justify-evenly shadow-2xl rounded">
+        <main>
+          <Clock />
+        </main>
 
-      <section>
-        <TimeZones />
-      </section>
+        <section>
+          <TimeZones />
+        </section>
+      </div>
     </div>
   );
 };
