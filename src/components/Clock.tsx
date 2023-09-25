@@ -42,7 +42,7 @@ const Clock: FunctionComponent<ClockProps> = (props) => {
 
             <div className="text-center flex flex-col">
               <span>
-                <h5 className="font-mono text-green-500 text-2xl">{time}</h5>
+                <h1 className="font-mono text-green-500 text-5xl">{time}</h1>
                 <h6 className="font-mono text-green-500 text-lg">{date}</h6>
               </span>
             </div>
