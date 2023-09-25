@@ -1,19 +1,20 @@
 import React from "react";
 import Clock from "@/components/Clock";
-import TimeZones from "@/components/TimeZones";
+import WorldClock from "@/services/WorldClock";
 
-const Home = () => {
+async function getTimeZones() {
+  return await WorldClock.getTimeZones();
+}
+
+const Home = async () => {
+  const timezones = await getTimeZones();
+
   return (
-    <div className="p-4 min-h-screen grid items-center bg-[#2d2d2d]">
-      <div className="h-full flex items-center flex-col justify-evenly shadow-2xl rounded">
-        <main>
-          <Clock />
-        </main>
-
-        <section>
-          <TimeZones />
-        </section>
-      </div>
+    <div className="p-4 min-h-screen items-center grid grid-cols-2 gap-4 bg-black">
+      <Clock timezones={timezones} />
+      <Clock timezones={timezones} />
+      <Clock timezones={timezones} />
+      <Clock timezones={timezones} />
     </div>
   );
 };

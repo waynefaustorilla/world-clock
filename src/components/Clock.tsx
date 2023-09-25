@@ -1,15 +1,17 @@
 "use client";
 
-import React from "react";
-import { RootState } from "@/states/stores/store";
-import { useSelector } from "react-redux";
+import React, { FunctionComponent } from "react";
+import { Dropdown, DropdownChangeEvent } from "primereact/dropdown";
 import moment from "moment-timezone";
 
-const Clock = () => {
-  const { timezone } = useSelector((state: RootState) => state.clock);
+interface ClockProps {
+  timezones: string[]
+}
 
-  const [time, setTime] = React.useState<string>("");
-  const [date, setDate] = React.useState<string>("");
+const Clock: FunctionComponent<ClockProps> = (props) => {
+  const [timezone, setTimezone] = React.useState("");
+  const [time, setTime] = React.useState("");
+  const [date, setDate] = React.useState("");
 
   React.useEffect(() => {
     if (timezone !== "") {
@@ -20,23 +22,37 @@ const Clock = () => {
         setTime(timeByZone.format("hh:mm:ss A"));
       }, 100);
     }
-  }, [timezone]);
+  }, [time, date, timezone]);
 
   return (
-    <React.Fragment>
+    <section className="flex flex-col gap-4 border border-green-500 h-full rounded justify-evenly">
       {
         time === "" ?
-          <div className="text-center flex flex-col gap-4">
-            <h1 className="font-mono text-white text-6xl">Welcome to the World Clock</h1>
-            <h3 className="font-mono text-white text-4xl">Please select a time zone below.</h3>
+          <div className="text-center flex flex-col">
+            <span>
+              <h5 className="font-mono text-green-500 text-xl">Welcome to the World Clock</h5>
+              <h6 className="font-mono text-green-500 text-lg">Please select a time zone below.</h6>
+            </span>
           </div>
           :
-          <div className="text-center flex flex-col gap-4">
-            <h1 className="font-mono text-white text-6xl">{time}</h1>
-            <h3 className="font-mono text-white text-4xl">{date}</h3>
-          </div>
+          <>
+            <span className="flex items-center justify-center">
+              <h3 className="text-2xl text-green-500">{timezone}</h3>
+            </span>
+
+            <div className="text-center flex flex-col">
+              <span>
+                <h5 className="font-mono text-green-500 text-2xl">{time}</h5>
+                <h6 className="font-mono text-green-500 text-lg">{date}</h6>
+              </span>
+            </div>
+          </>
       }
-    </React.Fragment>
+
+      <section className="flex items-center justify-center">
+        <Dropdown options={props.timezones} value={timezone} filter onChange={(event: DropdownChangeEvent) => setTimezone(event.target.value)} />
+      </section>
+    </section>
   );
 };
 
