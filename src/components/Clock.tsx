@@ -20,7 +20,7 @@ const Clock: FunctionComponent<ClockProps> = (props) => {
       const timeByZone = moment().tz(!props.timezone ? timezone : props.timezone);
 
       setDate(timeByZone?.format("dddd, MMMM Do, YYYY"));
-      setTime(timeByZone?.format("hh:mm:ss A"));
+      setTime(timeByZone?.format("HH:mm:ss"));
     }, 100);
   }, [time, date, timezone, props.timezone]);
 
