@@ -11,10 +11,10 @@ const Home = async () => {
 
   return (
     <div className="p-4 min-h-screen items-center grid grid-cols-2 gap-4 bg-black">
-      <Clock timezones={timezones} label={"Philippine Time"} timezone={"Asia/Manila"} />
-      <Clock timezones={timezones} label={"Denmark Time"} timezone={"CET"} />
-      <Clock timezones={timezones} label={"India Time"} timezone={"Asia/Kolkata"} />
-      <Clock timezones={timezones} label={"Australia Time"} timezone={"Australia/Sydney"} />
+      <Clock timezones={timezones} label={"Philippine"} timezone={"Asia/Manila"} />
+      <Clock timezones={timezones} label={"Denmark"} timezone={"CET"} />
+      <Clock timezones={timezones} label={"India"} timezone={"Asia/Kolkata"} />
+      <Clock timezones={timezones} label={"Australia"} timezone={"Australia/Sydney"} />
     </div>
   );
 };
